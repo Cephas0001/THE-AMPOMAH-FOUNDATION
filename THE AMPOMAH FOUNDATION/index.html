@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ampomah Group Foundation - Bringing Hope & Dignity to Ghana</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a3d62;
+            --secondary: #1e8479;
+            --accent: #f7b731;
+            --light: #f8f9fa;
+            --dark: #1a1a2e;
+            --gray: #6c757d;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --transition-slow: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-medium: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #fff;
+            overflow-x: hidden;
+            font-size: 1.05rem;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.8rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), #ff9f1a);
+            border-radius: 2px;
+            transition: var(--transition-medium);
+        }
+
+        h2:hover::after {
+            width: 120px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent), #ff9f1a);
+            color: white;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: var(--transition-medium);
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 10px 20px rgba(247, 183, 49, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), #2aa79b);
+            transition: var(--transition-medium);
+            z-index: -1;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(247, 183, 49, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--secondary), #2aa79b);
+            box-shadow: 0 10px 20px rgba(30, 132, 121, 0.3);
+        }
+
+        .btn-secondary::before {
+            background: linear-gradient(135deg, var(--primary), #0e5a8a);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 2000;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition-medium);
+            padding: 0.8rem 0;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition-medium);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-img {
+            height: 65px;
+            width: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            padding: 3px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark);
+            transition: var(--transition-fast);
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), #ff9f1a);
+            border-radius: 2px;
+            transition: var(--transition-medium);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+            transition: var(--transition-fast);
+        }
+
+        .mobile-toggle:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section with PROMINENT LOGO */
+        .hero {
+            height: 100vh;
+            min-height: 900px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://i.imgur.com/MbbTCnU.jpeg') no-repeat center center/cover;
+            z-index: -2;
+            transform: scale(1.1);
+            animation: zoomOut 20s infinite alternate;
+        }
+
+        @keyframes zoomOut {
+            0% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 61, 98, 0.9) 0%, rgba(30, 132, 121, 0.9) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+            color: white;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* MAJOR LOGO HIGHLIGHT SECTION - Center Stage */
+        .logo-showcase {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 3rem;
+            animation: floatLogo 6s ease-in-out infinite;
+        }
+
+        @keyframes floatLogo {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .main-logo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            padding: 8px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 15px rgba(247, 183, 49, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.2);
+            margin-bottom: 2rem;
+            transition: var(--transition-medium);
+        }
+
+        .main-logo:hover {
+            transform: scale(1.05);
+            border-color: rgba(247, 183, 49, 0.6);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 0 20px rgba(247, 183, 49, 0.3),
+                inset 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .foundation-name {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 4.5rem;
+            background: linear-gradient(90deg, #ffffff, #f7f7f7, #f7b731);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .foundation-tagline {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            background: linear-gradient(90deg, #fff, #f7f7f7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            font-size: 3.5rem;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            animation: fadeInUp 1.2s ease-out 0.3s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
+        /* LOGO INTRO SECTION - Additional Logo Prominence */
+        .logo-intro {
+            background: linear-gradient(135deg, #f9fbfd 0%, #edf7f6 100%);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-intro::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(247, 183, 49, 0.1);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .logo-intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-symbol {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2.5rem;
+            border: 5px solid white;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.15),
+                0 0 0 10px rgba(10, 61, 98, 0.1);
+            transition: var(--transition-medium);
+        }
+
+        .logo-symbol:hover {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                0 0 0 15px rgba(10, 61, 98, 0.15);
+        }
+
+        .logo-intro h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about {
+            background-color: #f9fbfd;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(247, 183, 49, 0.1) 0%, rgba(30, 132, 121, 0.1) 100%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text {
+            padding-right: 1rem;
+        }
+
+        .about-text blockquote {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: var(--secondary);
+            border-left: 5px solid var(--accent);
+            padding: 2rem 0 2rem 2rem;
+            margin: 2.5rem 0;
+            background-color: rgba(247, 183, 49, 0.05);
+            border-radius: 0 10px 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text blockquote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-size: 8rem;
+            color: rgba(247, 183, 49, 0.1);
+            font-family: 'Playfair Display', serif;
+            z-index: -1;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition-medium);
+        }
+
+        .about-image:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            background: linear-gradient(135deg, #f9fbfd 0%, #edf7f6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-vision::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(10, 61, 98, 0.1) 0%, rgba(30, 132, 121, 0.1) 100%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .mv-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mv-card {
+            background-color: white;
+            padding: 3.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid transparent;
+        }
+
+        .mv-card:hover {
+            transform: translateY(-15px);
+            border-bottom: 5px solid var(--accent);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .mv-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1;
+        }
+
+        .mv-icon {
+            font-size: 4rem;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            height: 100px;
+            width: 100px;
+            line-height: 100px;
+            background: linear-gradient(135deg, rgba(247, 183, 49, 0.1) 0%, rgba(30, 132, 121, 0.1) 100%);
+            border-radius: 50%;
+            display: inline-block;
+            transition: var(--transition-medium);
+        }
+
+        .mv-card:hover .mv-icon {
+            transform: scale(1.1) rotate(5deg);
+            background: linear-gradient(135deg, rgba(247, 183, 49, 0.2) 0%, rgba(30, 132, 121, 0.2) 100%);
+        }
+
+        /* Who We Serve */
+        .serve-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .serve-card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .serve-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transition: var(--transition-medium);
+            z-index: 1;
+        }
+
+        .serve-card:hover::before {
+            height: 100%;
+        }
+
+        .serve-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .serve-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            height: 90px;
+            width: 90px;
+            line-height: 90px;
+            background-color: rgba(10, 61, 98, 0.05);
+            border-radius: 50%;
+            display: inline-block;
+            transition: var(--transition-medium);
+        }
+
+        .serve-card:hover .serve-icon {
+            transform: scale(1.1);
+            color: var(--accent);
+            background-color: rgba(247, 183, 49, 0.1);
+        }
+
+        /* Impact Gallery */
+        .gallery {
+            background: linear-gradient(135deg, #edf7f6 0%, #f9fbfd 100%);
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 280px;
+            box-shadow: var(--shadow);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.7) 100%);
+            opacity: 0;
+            transition: var(--transition-medium);
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .cta h2 {
+            color: white;
+        }
+
+        .cta h2::after {
+            background: var(--accent);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta p {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+        }
+
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta .btn::before {
+            background: linear-gradient(135deg, var(--accent), #ff9f1a);
+        }
+
+        .cta .btn:hover {
+            color: white;
+        }
+
+        /* Footer with LOGO EMPHASIS */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 6rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(247, 183, 49, 0.05);
+            border-radius: 50%;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .footer-logo-img {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent);
+            padding: 5px;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.3),
+                0 0 0 10px rgba(247, 183, 49, 0.2);
+            transition: var(--transition-medium);
+        }
+
+        .footer-logo-img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.4),
+                0 0 0 15px rgba(247, 183, 49, 0.3);
+        }
+
+        .footer-logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 900;
+            font-size: 2.5rem;
+            text-align: center;
+            background: linear-gradient(90deg, #fff, var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.1;
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: white;
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-links h3::after, .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition-fast);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        .footer-contact p {
+            margin-bottom: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .footer-contact i {
+            color: var(--accent);
+            width: 25px;
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .copyright-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin: 0 10px;
+            border: 2px solid var(--accent);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2.4rem;
+            }
+            
+            .foundation-name {
+                font-size: 3.8rem;
+            }
+            
+            .foundation-tagline {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-content, .mv-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+            
+            .foundation-name {
+                font-size: 3.2rem;
+            }
+            
+            .foundation-tagline {
+                font-size: 1.4rem;
+            }
+            
+            .main-logo {
+                width: 180px;
+                height: 180px;
+            }
+            
+            h1 {
+                font-size: 2.6rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background-color: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition-medium);
+                z-index: 1999;
+                gap: 1.5rem;
+                height: calc(100vh - 80px);
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 3rem;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero {
+                min-height: 850px;
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .foundation-name {
+                font-size: 2.8rem;
+            }
+            
+            .foundation-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .main-logo {
+                width: 160px;
+                height: 160px;
+            }
+            
+            section {
+                padding: 4.5rem 0;
+            }
+            
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .mv-card, .serve-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .footer-logo {
+                align-items: center;
+            }
+            
+            .footer-logo-text {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.2rem;
+            }
+            
+            .foundation-name {
+                font-size: 2.2rem;
+            }
+            
+            .foundation-tagline {
+                font-size: 1.1rem;
+            }
+            
+            .main-logo {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .btn {
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .about-text blockquote {
+                font-size: 1.3rem;
+                padding: 1.5rem 0 1.5rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.9rem;
+            }
+            
+            h3 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-logo-img {
+                height: 100px;
+                width: 100px;
+            }
+            
+            .footer-logo-text {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <a href="#home" class="logo">
+                <img src="https://i.imgur.com/QfgpNmT.png" alt="Ampomah Group Foundation Logo" class="logo-img">
+                <div class="logo-text">Ampomah Group Foundation</div>
+            </a>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">Our Story</a></li>
+                    <li><a href="#mission" class="nav-link">Mission & Vision</a></li>
+                    <li><a href="#serve" class="nav-link">Who We Serve</a></li>
+                    <li><a href="#gallery" class="nav-link">Our Impact</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with PROMINENT LOGO CENTER STAGE -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <!-- MAJOR LOGO HIGHLIGHT - Center Stage -->
+                <div class="logo-showcase">
+                    
+                    <div class="foundation-name">Ampomah Group Foundation</div>
+                    <div class="foundation-tagline">Bringing Hope, Care & Dignity to Ghana</div>
+                </div>
+                
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">A humanitarian organization based in Ghana, established to support the poor, the sick, orphans, street children, and socially disadvantaged individuals.</p>
+                <div class="hero-btns">
+                    <a href="#about" class="btn animate__animated animate__fadeInUp animate__delay-2s">Learn More About Us</a>
+                    <a href="#contact" class="btn btn-secondary animate__animated animate__fadeInUp animate__delay-2s">Get Involved</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Introduction Section -->
+    <section class="logo-intro">
+        <div class="container">
+            <div class="logo-intro-content">
+                <img src="https://i.imgur.com/QfgpNmT.png" alt="Ampomah Group Foundation Logo" class="logo-symbol">
+                <h2>Our Identity</h2>
+                <p>The Ampomah Group Foundation logo represents our commitment to compassion, service, and dignity. It symbolizes the hope we bring to vulnerable communities across Ghana through our humanitarian work.</p>
+                <p>Just as our logo stands strong and recognizable, our foundation stands as a beacon of hope for those in need, providing practical assistance and restoring dignity to the lives we touch.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Story</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Ampomah Group Foundation was created to respond to the needs of the vulnerable in Ghana through compassion, service, and practical assistance. We believe that every human life is valuable and deserves care, respect, and opportunity.</p>
+                    <p>Many individuals and children in Ghana face daily challenges such as lack of food, access to healthcare, shelter, and basic support. Our foundation exists to bring hope, care, and dignity to people who are struggling due to poverty, illness, abandonment, or difficult living conditions.</p>
+                    <blockquote>
+                        "Give, and it will be given to you. A good measure, pressed down, shaken together and running over." — Luke 6:38
+                    </blockquote>
+                    <p>Through outreach programs and charitable activities, we aim to restore hope and improve the quality of life for those in need. The foundation is driven by a strong sense of compassion and responsibility toward humanity.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://i.imgur.com/fadIATC.jpeg" alt="Our Work in Ghana">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision" id="mission">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Mission & Vision</h2>
+            </div>
+            
+            <div class="mv-container">
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To create a compassionate society where the poor, the sick, orphans, and socially disadvantaged people are cared for, supported, and given hope for a better future.</p>
+                </div>
+                
+                <div class="mv-card fade-in">
+                    <div class="mv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>To serve vulnerable individuals and communities in Ghana by providing humanitarian assistance, medical support, care for orphans and street children, and community outreach that restores dignity and hope.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Serve -->
+    <section id="serve">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who We Serve</h2>
+                <p>We focus our efforts on helping the most vulnerable members of society</p>
+            </div>
+            
+            <div class="serve-container">
+                <div class="serve-card fade-in">
+                    <div class="serve-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>The Poor & Underprivileged</h3>
+                    <p>Providing food, shelter, and basic necessities to those living in poverty.</p>
+                </div>
+                
+                <div class="serve-card fade-in">
+                    <div class="serve-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>The Sick & Medically Vulnerable</h3>
+                    <p>Offering medical assistance, healthcare access, and support for those facing illness.</p>
+                </div>
+                
+                <div class="serve-card fade-in">
+                    <div class="serve-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Orphans & Orphanages</h3>
+                    <p>Caring for children without parents and supporting orphanages with resources.</p>
+                </div>
+                
+                <div class="serve-card fade-in">
+                    <div class="serve-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Street Children</h3>
+                    <p>Reaching out to children living on the streets with care, education, and rehabilitation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Gallery -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact</h2>
+                <p>Through outreach programs and charitable activities, we aim to restore hope and improve quality of life</p>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item fade-in">
+                    <img src="https://i.imgur.com/khuB23g.jpeg" alt="Foundation Impact 1">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://i.imgur.com/vhC5tgL.jpeg" alt="Foundation Impact 2">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://i.imgur.com/pPNb4XI.jpeg" alt="Foundation Impact 3">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://i.imgur.com/usVdkjT.jpeg" alt="Foundation Impact 4">
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://i.imgur.com/LzhN3gA.jpeg" alt="Foundation Impact 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <h2 class="fade-in">Join Us in Making a Difference</h2>
+            <p class="fade-in">Our work is centered on service, integrity, and genuine care for others, with the goal of making a meaningful and lasting impact in communities across Ghana. Your support can help us reach more people in need.</p>
+            <a href="#contact" class="btn fade-in">Get Involved Today</a>
+        </div>
+    </section>
+
+    <!-- Footer with LOGO EMPHASIS -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo-section">
+                    <div class="footer-logo">
+                        <img src="https://i.imgur.com/QfgpNmT.png" alt="Ampomah Group Foundation Logo" class="footer-logo-img">
+                        <div class="footer-logo-text">Ampomah Group Foundation</div>
+                    </div>
+                    <div class="footer-about">
+                        <p>Bringing hope, care, and dignity to the poor, sick, orphans, street children, and socially disadvantaged individuals in Ghana through compassion and practical assistance.</p>
+                        <p><strong>Our Guiding Principle:</strong> Helping people is at the heart of our work, with a belief that compassion and service can change lives and strengthen communities.</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#mission">Mission & Vision</a></li>
+                        <li><a href="#serve">Who We Serve</a></li>
+                        <li><a href="#gallery">Our Impact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Based in Ghana, serving communities nationwide</p>
+                    <p><i class="fas fa-envelope"></i> info@ampomahfoundation.org</p>
+                    <p><i class="fas fa-phone"></i> +233 XX XXX XXXX</p>
+                    <p><i class="fas fa-globe"></i> www.ampomahfoundation.org</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Ampomah Group Foundation <img src="https://i.imgur.com/QfgpNmT.png" alt="Logo" class="copyright-logo"> All rights reserved. | Bringing Hope & Dignity to Ghana</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.innerHTML = navMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.padding = '0';
+                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.padding = '0.8rem 0';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+        
+        // Scroll animation for fade-in elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        
+        // Initial check
+        fadeInOnScroll();
+        
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add some interactive effects to cards on mouse move
+        document.querySelectorAll('.mv-card, .serve-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const cardRect = card.getBoundingClientRect();
+                const x = e.clientX - cardRect.left;
+                const y = e.clientY - cardRect.top;
+                
+                const centerX = cardRect.width / 2;
+                const centerY = cardRect.height / 2;
+                
+                const rotateY = ((x - centerX) / centerX) * 2;
+                const rotateX = ((centerY - y) / centerY) * 2;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(-10px)';
+            });
+        });
+        
+        // Add logo glow effect on scroll
+        const mainLogo = document.querySelector('.main-logo');
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const maxScroll = 300;
+            const glowIntensity = Math.min(scrollPosition / maxScroll, 1) * 20;
+            
+            if (scrollPosition < maxScroll) {
+                mainLogo.style.boxShadow = 
+                    `0 20px 40px rgba(0, 0, 0, 0.3),
+                     0 0 0 ${15 + glowIntensity}px rgba(247, 183, 49, 0.2),
+                     inset 0 0 ${30 + glowIntensity}px rgba(255, 255, 255, 0.2)`;
+            }
+        });
+    </script>
+</body>
+</html>
