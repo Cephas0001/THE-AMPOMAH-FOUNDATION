@@ -22,12 +22,12 @@
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '0';
-                header.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.1)';
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 0';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.12)';
             } else {
-                header.style.padding = '0.8rem 0';
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.05)';
+                header.style.padding = '1rem 0';
+                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
             }
         });
         
@@ -50,21 +50,6 @@
         
         // Check on scroll
         window.addEventListener('scroll', fadeInOnScroll);
-        
-        // Add logo glow effect on scroll
-        const mainLogo = document.querySelector('.main-logo');
-        window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            const maxScroll = 300;
-            const glowIntensity = Math.min(scrollPosition / maxScroll, 1) * 20;
-            
-            if (scrollPosition < maxScroll) {
-                mainLogo.style.boxShadow = 
-                    `0 20px 40px rgba(0, 0, 0, 0.3),
-                     0 0 0 ${15 + glowIntensity}px rgba(247, 183, 49, 0.2),
-                     inset 0 0 ${30 + glowIntensity}px rgba(255, 255, 255, 0.2)`;
-            }
-        });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
